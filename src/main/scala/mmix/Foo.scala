@@ -1,5 +1,0 @@
-package mmix
-
-class Foo {
-
-}
