@@ -1,4 +1,4 @@
-package mmix
+package mix
 
 import org.scalatest.{FlatSpec, Matchers}
 
@@ -31,7 +31,7 @@ class TestFieldSpecification extends FlatSpec with Matchers {
     FieldSpecification(0, 2)(word) shouldBe FieldSpecification(Some(Positive), List(Byte(1), Byte(2)))
     FieldSpecification(0, 3)(word) shouldBe FieldSpecification(Some(Positive), List(Byte(1), Byte(2), Byte(3)))
     FieldSpecification(0, 4)(word) shouldBe FieldSpecification(Some(Positive), List(Byte(1), Byte(2), Byte(3), Byte(4)))
-    FieldSpecification(0, 5)(word) shouldBe FieldSpecification(Some(Positive), List(Byte(1), Byte(2), Byte(3), Byte(4), Bye(5)))
+    FieldSpecification(0, 5)(word) shouldBe FieldSpecification(Some(Positive), List(Byte(1), Byte(2), Byte(3), Byte(4), Byte(5)))
 
     FieldSpecification(1, 1)(word) shouldBe FieldSpecification(None, List(Byte(1)))
     FieldSpecification(1, 2)(word) shouldBe FieldSpecification(None, List(Byte(1), Byte(2)))
@@ -46,7 +46,7 @@ class TestFieldSpecification extends FlatSpec with Matchers {
 
     FieldSpecification(3, 3)(word) shouldBe FieldSpecification(None, List(Byte(3)))
     FieldSpecification(3, 4)(word) shouldBe FieldSpecification(None, List(Byte(3), Byte(4)))
-    FieldSpecification(3, 5)(word) shouldBe FieldSpecification(None, List(Byte(3), Byte(4), Bye(5)))
+    FieldSpecification(3, 5)(word) shouldBe FieldSpecification(None, List(Byte(3), Byte(4), Byte(5)))
 
     FieldSpecification(4, 4)(word) shouldBe FieldSpecification(None, List(Byte(4)))
     FieldSpecification(4, 5)(word) shouldBe FieldSpecification(None, List(Byte(4), Byte(5)))

@@ -4,6 +4,8 @@ trait Byte {
 
   val value: Int
 
+  override def equals(obj: Any): Boolean = obj.asInstanceOf[Byte].value == value
+
 }
 
 object Byte {

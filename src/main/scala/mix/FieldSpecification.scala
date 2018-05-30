@@ -1,10 +1,6 @@
 package mix
 
-trait FieldSpecification {
-
-  val sign: Option[Sign]
-  val bytes: List[Byte]
-}
+case class FieldSpecification(val sign: Option[Sign], val bytes: List[Byte])
 
 object FieldSpecification {
 
@@ -23,10 +19,6 @@ object FieldSpecification {
 
     def getIfInRange(i: Int): Option[Byte] = {
 
-      if(i < 1 || i > 5) {
-        throw new IllegalArgumentException()
-      }
-
       if(!inRange(i)) None
       else i match {
         case 1 => Some(word._1)
@@ -37,11 +29,10 @@ object FieldSpecification {
       }
     }
 
-    new FieldSpecification {
+    FieldSpecification(
+      if(inRange(0)) Some(word.sign) else None,
+      Range(1, 6).toList.flatMap(getIfInRange(_))
+    )
 
-      override val sign = if(inRange(0)) Some(word.sign) else None
-
-      override val bytes: List[Byte] = Range(1, 6).toList.flatMap(getIfInRange(_))
-    }
   }
 }

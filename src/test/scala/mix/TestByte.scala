@@ -1,4 +1,4 @@
-package mmix
+package mix
 
 import org.scalatest.{FlatSpec, Matchers}
 
